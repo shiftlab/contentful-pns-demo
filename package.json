@@ -1,0 +1,49 @@
+{
+  "name": "contentful-pns-demo",
+  "version": "1.0.0",
+  "description": "REST API for Contentful PNS demo",
+  "main": "dist",
+  "scripts": {
+    "dev": "nodemon -w src --exec \"babel-node src --presets es2015,stage-0\"",
+    "build": "babel src -s -D -d dist --presets es2015,stage-0",
+    "start": "node dist",
+    "prestart": "npm run -s build"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "no-console": 0,
+      "no-unused-vars": 1
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shiftlab/contentful-pns-demo"
+  },
+  "author": "Jeremy Jackson <jeremy@shiftlabny.com>",
+  "dependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "body-parser": "^1.13.3",
+    "cors": "^2.7.1",
+    "dotenv": "^4.0.0",
+    "express": "^4.13.3",
+    "express-basic-auth": "^1.0.1",
+    "pushwoosh-client": "^1.4.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "eslint": "^3.1.1",
+    "nodemon": "^1.9.2"
+  }
+}
