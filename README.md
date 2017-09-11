@@ -2,13 +2,14 @@
 A REST API for Contentful PNS demo
 
 ## Presentation Deck
-Download the [Push notifications with Contentful Webhooks in under 30 minutes](http://###) presentation.
+Download the [Push notifications with Contentful Webhooks in under 30 minutes](http://shift-lab.s3.amazonaws.com/contentful-pns-deck.pdf) presentation.
 
 ## Getting started
 
 1. Install [node.js](https://nodejs.org/en/download/)
 2. Clone this repository: `git clone git@github.com:shiftlab/contentful-pns-demo.git`
 3. Change to project directory: `cd ./contentful-pns-demo`
+4. Rename `./.env.sample` to `./.env` and paste in your Pushwoosh tokens.
 4. Install project dependencies: `npm install`
 5. Run the project:
 
@@ -37,9 +38,7 @@ with [deployments using git](https://devcenter.heroku.com/articles/git). Once th
 you should be able to deploy using `git push heroku master`.
 
 Heroku will handle installing the dependencies on its own. The `./Procfile` will start the app
-automatically post-deploy. Be sure to
-[add the necessary environment variables](https://devcenter.heroku.com/articles/config-vars)
-outlined in `./env.sample` to your Heroku app.
+automatically post-deploy.
 
 The example app is configured to work with
 [Pushwoosh's Heroku add-on](https://elements.heroku.com/addons/pushwoosh). Once you provision

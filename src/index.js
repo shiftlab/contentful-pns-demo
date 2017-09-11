@@ -5,7 +5,7 @@ import bodyParser from 'body-parser';
 import basicAuth from 'express-basic-auth';
 import config from './config.json';
 import dotenv from 'dotenv';
-import {version} from '../package.json';
+import {name, version} from '../package.json';
 import {getUnauthorizedResponse} from './lib/http-basic.js';
 import {notify} from './lib/pushwoosh.js';
 
@@ -29,26 +29,30 @@ app.use(basicAuth({
 
 app.get('/api', (req, res) => {
   res.send({
-    name: 'contentful-pns-demo',
+    name: name,
     status: 'authenticated',
     version: version
   });
 });
 
-app.get('/api/notify', (req, res) => {
-  res.send({
-    name: 'NOTIFY!'
-  });
+app.post('/api/notify', (req, res) => {
+  const source = req.headers.source;
+  const contentId = req.body.sys.contentType.sys.id;
 
-  // const source = req.headers.source;
-  // const contentId = req.body.sys.contentType.sys.id;
-
-  // if (contentId === 'pushNotifications') {
-  //   notify(req.body.fields);
-  //   res.send(`Sending Pushwoosh notification to NODE_ENV=${process.env.NODE_ENV}`);
-  // } else {
-  //   res.send(`No push notifications for ${contentId}`);
-  // }
+  if (contentId === 'pushNotifications') {
+    notify(req.body.fields);
+    res.send({
+      name: name,
+      status: 'sending-push-notification',
+      version: version
+    });
+  } else {
+    res.send({
+      name: name,
+      status: 'no-push-notification-for-content-type',
+      version: version
+    });
+  }
 });
 
 app.server.listen(process.env.PORT || config.port);
