@@ -1,7 +1,8 @@
 # contentful-pns-demo
 A REST API for Contentful PNS demo
 
-Download the demo presentation here: !!!!!TODO!!!!!
+## Presentation Deck
+Download the [Push notifications with Contentful Webhooks in under 30 minutes](http://###) presentation.
 
 ## Getting started
 
