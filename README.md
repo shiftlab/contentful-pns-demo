@@ -25,7 +25,7 @@ The example app should now be running at [http://localhost:8080/api](http://loca
 See [API Documentation](https://github.com/shiftlab/contentful-pns-demo/wiki/API-Documentation)
 for information on how to use the demo application API.
 
-If you want to work or experienment with the API, or further develop functionality in the demo
+If you want to work or experiment with the API, or further develop functionality in the demo
 application, it is recommended developers use a tool like [Postman](https://www.getpostman.com/)
 to simulate RESTful `GET` and `POST` requests and responses.
 
